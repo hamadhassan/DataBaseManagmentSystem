@@ -1,0 +1,24 @@
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\bin\Debug\CRUDA.exe.config
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\bin\Debug\CRUDA.exe
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\bin\Debug\CRUDA.pdb
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\obj\Debug\CRUDA.csproj.AssemblyReference.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\obj\Debug\CRUDA.csproj.SuggestedBindingRedirects.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\obj\Debug\CRUDA.Form1.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\obj\Debug\CRUDA.Properties.Resources.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\obj\Debug\CRUDA.csproj.GenerateResource.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\obj\Debug\CRUDA.csproj.CoreCompileInputs.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\obj\Debug\CRUDA.exe
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\obj\Debug\CRUDA.pdb
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2\CRUDA\obj\Debug\CRUDA.frmLab2.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\bin\Debug\CRUDA.exe.config
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\bin\Debug\CRUDA.exe
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\bin\Debug\CRUDA.pdb
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\obj\Debug\CRUDA.csproj.AssemblyReference.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\obj\Debug\CRUDA.csproj.SuggestedBindingRedirects.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\obj\Debug\CRUDA.Form1.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\obj\Debug\CRUDA.frmLab2.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\obj\Debug\CRUDA.Properties.Resources.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\obj\Debug\CRUDA.csproj.GenerateResource.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\obj\Debug\CRUDA.csproj.CoreCompileInputs.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\obj\Debug\CRUDA.exe
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUDA\obj\Debug\CRUDA.pdb
