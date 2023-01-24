@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CRUD_Application_Home_Task
 {
-    public partial class Form1 : Form
+    public partial class frmStudent : Form
     {
-        public Form1()
+        public frmStudent()
         {
             InitializeComponent();
         }

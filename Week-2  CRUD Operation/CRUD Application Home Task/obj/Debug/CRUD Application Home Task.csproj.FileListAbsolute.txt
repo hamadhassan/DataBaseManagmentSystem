@@ -1,0 +1,12 @@
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\bin\Debug\CRUD Application Home Task.exe.config
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\bin\Debug\CRUD Application Home Task.exe
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\bin\Debug\CRUD Application Home Task.pdb
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.csproj.AssemblyReference.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.csproj.SuggestedBindingRedirects.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.Form1.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.Properties.Resources.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.csproj.GenerateResource.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.csproj.CoreCompileInputs.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.exe
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.pdb
+D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.frmDashboard.resources
