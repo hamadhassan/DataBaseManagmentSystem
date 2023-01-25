@@ -43,7 +43,7 @@ namespace CRUDA
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var con = Configuration.getInstance().getConnection();
-            SqlCommand cmd = new SqlCommand("delete from student where RegistrationNumber=" + int.Parse(txtbxRegNumber.Text), con);
+            SqlCommand cmd = new SqlCommand("delete from student where RegistrationNumber=" + txtbxRegNumber.Text, con);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Successfully deleted");
         }

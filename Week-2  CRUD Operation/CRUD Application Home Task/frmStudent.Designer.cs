@@ -28,208 +28,198 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtbxRegNumber = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtbxName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtbxDepartment = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtbxSession = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.rtxtbxAddress = new System.Windows.Forms.RichTextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblSignal = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtbxRegNumber
             // 
-            this.txtbxRegNumber.Location = new System.Drawing.Point(15, 47);
+            this.txtbxRegNumber.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtbxRegNumber.Location = new System.Drawing.Point(16, 21);
             this.txtbxRegNumber.Name = "txtbxRegNumber";
             this.txtbxRegNumber.Size = new System.Drawing.Size(220, 26);
             this.txtbxRegNumber.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Registration Number";
+            this.txtbxRegNumber.Text = "Registration Number";
+            this.txtbxRegNumber.Enter += new System.EventHandler(this.txtbxRegNumber_Enter);
+            this.txtbxRegNumber.Leave += new System.EventHandler(this.txtbxRegNumber_Leave);
             // 
             // txtbxName
             // 
-            this.txtbxName.Location = new System.Drawing.Point(15, 105);
+            this.txtbxName.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtbxName.Location = new System.Drawing.Point(16, 53);
             this.txtbxName.Name = "txtbxName";
             this.txtbxName.Size = new System.Drawing.Size(220, 26);
-            this.txtbxName.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name";
+            this.txtbxName.TabIndex = 1;
+            this.txtbxName.Text = "Name";
+            this.txtbxName.Enter += new System.EventHandler(this.txtbxName_Enter);
+            this.txtbxName.Leave += new System.EventHandler(this.txtbxName_Leave);
             // 
             // txtbxDepartment
             // 
-            this.txtbxDepartment.Location = new System.Drawing.Point(15, 163);
+            this.txtbxDepartment.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtbxDepartment.Location = new System.Drawing.Point(16, 85);
             this.txtbxDepartment.Name = "txtbxDepartment";
             this.txtbxDepartment.Size = new System.Drawing.Size(220, 26);
-            this.txtbxDepartment.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 137);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Department";
+            this.txtbxDepartment.TabIndex = 2;
+            this.txtbxDepartment.Text = "Department";
+            this.txtbxDepartment.Enter += new System.EventHandler(this.txtbxDepartment_Enter);
+            this.txtbxDepartment.Leave += new System.EventHandler(this.txtbxDepartment_Leave);
             // 
             // txtbxSession
             // 
-            this.txtbxSession.Location = new System.Drawing.Point(15, 221);
+            this.txtbxSession.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtbxSession.Location = new System.Drawing.Point(16, 117);
             this.txtbxSession.Name = "txtbxSession";
             this.txtbxSession.Size = new System.Drawing.Size(220, 26);
-            this.txtbxSession.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 195);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Session";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 254);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Address";
+            this.txtbxSession.TabIndex = 3;
+            this.txtbxSession.Text = "Session";
+            this.txtbxSession.Enter += new System.EventHandler(this.txtbxSession_Enter);
+            this.txtbxSession.Leave += new System.EventHandler(this.txtbxSession_Leave);
             // 
             // rtxtbxAddress
             // 
             this.rtxtbxAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtxtbxAddress.Location = new System.Drawing.Point(15, 277);
+            this.rtxtbxAddress.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rtxtbxAddress.Location = new System.Drawing.Point(16, 149);
             this.rtxtbxAddress.Name = "rtxtbxAddress";
             this.rtxtbxAddress.Size = new System.Drawing.Size(220, 79);
-            this.rtxtbxAddress.TabIndex = 2;
-            this.rtxtbxAddress.Text = "";
+            this.rtxtbxAddress.TabIndex = 4;
+            this.rtxtbxAddress.Text = "Address";
+            this.rtxtbxAddress.Enter += new System.EventHandler(this.rtxtbxAddress_Enter);
+            this.rtxtbxAddress.Leave += new System.EventHandler(this.rtxtbxAddress_Leave);
             // 
             // btnUpdate
             // 
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(12, 410);
+            this.btnUpdate.Location = new System.Drawing.Point(13, 291);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(73, 30);
-            this.btnUpdate.TabIndex = 71;
+            this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnClear
             // 
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(89, 410);
+            this.btnClear.Location = new System.Drawing.Point(90, 291);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(71, 30);
-            this.btnClear.TabIndex = 69;
+            this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear ";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(164, 376);
+            this.btnDelete.Location = new System.Drawing.Point(165, 257);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(71, 30);
-            this.btnDelete.TabIndex = 68;
+            this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // btnRefresh
+            // btnLoad
             // 
-            this.btnRefresh.AutoSize = true;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(12, 376);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(73, 30);
-            this.btnRefresh.TabIndex = 66;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnLoad.AutoSize = true;
+            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad.Location = new System.Drawing.Point(13, 257);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(73, 30);
+            this.btnLoad.TabIndex = 5;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnSave
             // 
             this.btnSave.AutoSize = true;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(89, 376);
+            this.btnSave.Location = new System.Drawing.Point(90, 257);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(71, 30);
-            this.btnSave.TabIndex = 67;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(164, 410);
+            this.btnClose.Location = new System.Drawing.Point(165, 291);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(71, 30);
-            this.btnClose.TabIndex = 70;
+            this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(252, 21);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(575, 419);
-            this.dataGridView1.TabIndex = 72;
+            this.dataGridView1.Size = new System.Drawing.Size(575, 447);
+            this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // lblSignal
+            // 
+            this.lblSignal.AutoSize = true;
+            this.lblSignal.Location = new System.Drawing.Point(16, 232);
+            this.lblSignal.Name = "lblSignal";
+            this.lblSignal.Size = new System.Drawing.Size(13, 20);
+            this.lblSignal.TabIndex = 73;
+            this.lblSignal.Text = " ";
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 10000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // frmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 455);
+            this.ClientSize = new System.Drawing.Size(839, 496);
+            this.Controls.Add(this.lblSignal);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.rtxtbxAddress);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtbxSession);
             this.Controls.Add(this.txtbxDepartment);
             this.Controls.Add(this.txtbxName);
@@ -248,21 +238,18 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtbxRegNumber;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtbxName;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtbxDepartment;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtbxSession;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox rtxtbxAddress;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblSignal;
+        private System.Windows.Forms.Timer timer;
     }
 }

@@ -8,7 +8,7 @@ namespace CRUD_Operations
 {
     class Configuration
     {
-        String ConnectionStr = @"Data Source=(local);Initial Catalog=Test;Integrated Security=True";
+        String ConnectionStr = @"Data Source=(local);Initial Catalog=lab2_Home;Integrated Security=True";
         SqlConnection con;
         private static Configuration _instance;
         public static Configuration getInstance()
