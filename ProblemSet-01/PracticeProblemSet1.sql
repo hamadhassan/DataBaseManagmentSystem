@@ -108,7 +108,7 @@ FROM Product Pr Right OUTER JOIN Product Pr1
 ON PR.maker=PR1.maker
 GROUP BY pr.name,Pr.cost
 HAVING Pr.cost > AVG(Pr1.cost)
-----Question-01-07 (By FULL OUTER Join)
+----Question-01-08 (By FULL OUTER Join)
 SELECT pr.name
 FROM Product Pr FULL OUTER JOIN Product Pr1
 ON PR.maker=PR1.maker

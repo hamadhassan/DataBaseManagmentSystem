@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25) (preloaded format=pdflatex 2022.11.26)  9 FEB 2023 17:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.11.25) (preloaded format=pdflatex 2022.11.26)  9 FEB 2023 19:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -403,111 +403,112 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--42
  []
 
 
-Overfull \hbox (25.70416pt too wide) in paragraph at lines 59--60
+Overfull \hbox (25.70416pt too wide) in paragraph at lines 63--64
 []\OT1/cmr/m/n/10 SELECT pr.name FROM Prod-uct Pr JOIN Prod-uct Pr1 ON PR.maker
 =PR1.maker GROUP BY pr.name,Pr.cost
  []
 
 
-Overfull \hbox (22.64859pt too wide) in paragraph at lines 60--61
+Overfull \hbox (22.64859pt too wide) in paragraph at lines 64--65
 []\OT1/cmr/m/n/10 SELECT pr.name FROM Prod-uct Pr JOIN Prod-uct Pr1 ON PR.maker
 >PR1.maker GROUP BY pr.name,Pr.cost
  []
 
 
-Overfull \hbox (2.95518pt too wide) in paragraph at lines 63--65
+Overfull \hbox (2.95518pt too wide) in paragraph at lines 67--69
 []\OT1/cmr/m/n/10 SELECT pr.name FROM Prod-uct Pr Right OUTER JOIN Prod-uct Pr1
  ON PR.maker=PR1.maker GROUP
+ []
+
+
+Overfull \hbox (53.0259pt too wide) in paragraph at lines 88--89
+[]\OT1/cmr/m/n/10 SELECT C.name FROM Com-pany C,Product Pr, Pur-chase Pu WHERE 
+C.name=Pr.maker AND Pr.name=Pu.product
  []
 
 [1
 
 {C:/Users/Hammad Hassan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (9.45322pt too wide) in paragraph at lines 101--102
-[]\OT1/cmr/m/n/10 DECLARE @SUM as int =(Se-lect SUM(Pr.cost) FROM Prod-uct Pr W
-HERE Pr.maker='Unilever')
- []
-
-
-Overfull \hbox (13.85799pt too wide) in paragraph at lines 102--103
+Overfull \hbox (13.85799pt too wide) in paragraph at lines 116--117
 []\OT1/cmr/m/n/10 SELECT Pr.name FROM Prod-uct Pr WHERE NOT Pr.maker='Unilever'
  AND Pr.cost$\OML/cmm/m/it/10 >$\OT1/cmr/m/n/10 (Select SUM(Pr.cost)
  []
 
 
-Overfull \hbox (24.85579pt too wide) in paragraph at lines 103--104
+Overfull \hbox (24.85579pt too wide) in paragraph at lines 117--118
 []\OT1/cmr/m/n/10 SELECT DIS-TINCT Pr.name FROM Prod-uct Pr CROSS JOIN Prod-uct
  Pr1 WHERE NOT Pr.maker='Unilever'
  []
 
 
-Overfull \hbox (28.7758pt too wide) in paragraph at lines 104--105
+Overfull \hbox (28.7758pt too wide) in paragraph at lines 118--119
 \OT1/cmr/m/n/10 NOT Pr.maker='Unilever' AND Pr.cost$\OML/cmm/m/it/10 >$\OT1/cmr
 /m/n/10 (Select SUM(Pr.cost) FROM Prod-uct Pr WHERE Pr.maker='Unilever') 
  []
 
 
-Overfull \hbox (28.7758pt too wide) in paragraph at lines 105--106
+Overfull \hbox (28.7758pt too wide) in paragraph at lines 119--120
 \OT1/cmr/m/n/10 NOT Pr.maker='Unilever' AND Pr.cost$\OML/cmm/m/it/10 >$\OT1/cmr
 /m/n/10 (Select SUM(Pr.cost) FROM Prod-uct Pr WHERE Pr.maker='Unilever') 
  []
 
 
-Overfull \hbox (26.55359pt too wide) in paragraph at lines 106--108
+Overfull \hbox (26.55359pt too wide) in paragraph at lines 120--122
 \OT1/cmr/m/n/10 NOT Pr.maker='Unilever' AND Pr.cost$\OML/cmm/m/it/10 >$\OT1/cmr
 /m/n/10 (Select SUM(Pr.cost)FROM Prod-uct Pr WHERE Pr.maker='Unilever') 
  []
 
 
-Overfull \hbox (16.84218pt too wide) in paragraph at lines 134--135
-[]\OT1/cmr/m/n/10 SELECT Pr.name FROM Com-pany C,Product Pr WHERE Pr.maker=C.na
-me AND C.city='Lahore' 
- []
-
-
-Overfull \hbox (34.10585pt too wide) in paragraph at lines 135--136
+Overfull \hbox (34.10585pt too wide) in paragraph at lines 149--150
 []\OT1/cmr/m/n/10 SELECT Pr.name FROM Prod-uct Pr CROSS JOIN Com-pany C WHERE P
 r.maker=C.name AND C.city='Lahore' 
  []
 
 [2]
-Overfull \hbox (10.17538pt too wide) in paragraph at lines 169--170
-[]\OT1/cmr/m/n/10 SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Pur-cha
-se Pu GROUP BY Pu.product
+Overfull \hbox (52.88728pt too wide) detected at line 167
+\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^[[]AND[]AND[]\OT1/cmr
+/m/n/10 ([])([])([])))
  []
 
-
-Overfull \hbox (3.35687pt too wide) in paragraph at lines 186--188
+[3]
+Overfull \hbox (3.35687pt too wide) in paragraph at lines 206--208
 []\OT1/cmr/m/n/10 SELECT DIS-TINCT Pr.name FROM Prod-uct Pr CROSS JOIN Prod-uct
  Pr1 WHERE Pr1.maker=Pr.maker
  []
 
 
-Overfull \hbox (18.1636pt too wide) in paragraph at lines 188--189
+Overfull \hbox (18.1636pt too wide) in paragraph at lines 208--209
 []\OT1/cmr/m/n/10 SELECT Pr.name FROM Prod-uct Pr JOIN Prod-uct Pr1 ON Pr1.make
 r=Pr.maker WHERE Pr.cost$\OML/cmm/m/it/10 >$\OT1/cmr/m/n/10 (SELECT
  []
 
 
-Overfull \hbox (1.27357pt too wide) in paragraph at lines 189--191
+Overfull \hbox (1.27357pt too wide) in paragraph at lines 209--211
 []\OT1/cmr/m/n/10 SELECT Pr.name FROM Prod-uct Pr FULL OUTER JOIN Prod-uct Pr1 
 ON Pr1.maker=Pr.maker WHERE
  []
 
-[3]
-Overfull \hbox (1.55135pt too wide) in paragraph at lines 191--193
+
+Overfull \hbox (1.55135pt too wide) in paragraph at lines 211--213
 []\OT1/cmr/m/n/10 SELECT Pr.name FROM Prod-uct Pr LEFT OUTER JOIN Prod-uct Pr1 
 ON Pr1.maker=Pr.maker WHERE
  []
 
 
-Overfull \hbox (1.47961pt too wide) in paragraph at lines 214--215
+Overfull \hbox (46.85611pt too wide) detected at line 226
+[]\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^[ [] \OT1/cmr/m/n/1
+0 = [] & [] = [] & [] \OML/cmm/m/it/10 < []\OT1/cmr/m/n/10 )([] \OML/cmm/m/it/1
+0 .[]/ [] .[]/ []\OT1/cmr/m/n/10 ))
+ []
+
+
+Overfull \hbox (1.47961pt too wide) in paragraph at lines 238--239
 []\OT1/cmr/m/n/10 SELECT DIS-TINCT C.name FROM Com-pany C RIGHT OUTER JOIN Prod
 -uct Pr ON C.name=Pr.maker
  []
 
 
-Overfull \hbox (10.62401pt too wide) in paragraph at lines 225--228
+Overfull \hbox (10.62401pt too wide) in paragraph at lines 249--251
 \OT1/cmr/m/n/10 WHERE (Pr.cost-Pu.price)> (SE-LECT AVG(Pr1.cost- Pu1.price) FRO
 M Prod-uct Pr1,Purchase Pu1 WHERE
  []
@@ -528,10 +529,11 @@ san/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
 Users/Hammad Hassan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmr12.pfb><C:/Users/Hammad Hassan/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmr17.pfb><C:/Users/Hammad Hassan/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on ProblemSet-01.pdf (4 pages, 93755 bytes).
+eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Hammad Hassan/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on ProblemSet-01.pdf (4 pages, 105762 bytes).
 PDF statistics:
- 45 PDF objects out of 1000 (max. 8388607)
+ 50 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

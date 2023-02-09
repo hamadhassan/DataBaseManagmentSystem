@@ -51,6 +51,10 @@ Find the products(names only) whose cost is more than the average cost.
 \end{problem}
 \begin{proof}[Solution] 
 
+\begin{equation*}
+\pi \text{name} (\sigma \text{cost} > \text{AVG (cost)}  (\text{Product}))
+\end{equation*}
+
 \begin{enumerate}
     \item SELECT name FROM Product WHERE cost $>$ (SELECT AVG(cost)FROM Product)
     \item SELECT pr.name FROM Product Pr CROSS JOIN Product Pr1 GROUP BY Pr.name,Pr.cost HAVING Pr.cost $>$ AVG(Pr1.cost)
@@ -74,6 +78,12 @@ List the name of companies whose products are bought by Aslam.
 \end{problem}
 
 \begin{proof}[Solution]
+
+\begin{equation*}
+(\pi \text{C.name}( \sigma \text{Pu.buyer='Aslam'} (\text{Company C} \bowtie (\text{Product Pr} \bowtie (\text{Purchase Pu}))))
+\end{equation*}
+
+
 \begin{enumerate}
 	\item SELECT C.name FROM Company C,Product Pr, Purchase Pu WHERE  C.name=Pr.maker AND Pr.name=Pu.product AND pu.buyer ='Aslam'
 	\item SELECT C.name FROM Company C WHERE C.name IN (SELECT Pr.maker FROM Product Pr, Purchase Pu WHERE pu.buyer ='Aslam' AND Pr.name=Pu.product)
@@ -97,6 +107,10 @@ List the name of products that are more expensive that all the products produced
 \end{problem}
 
 \begin{proof}[Solution]
+\begin{equation*}
+\pi \text{Pr.name} (\neg( \sigma\text{Pu.maker='Unilever') AND (Pr1.cost$>$ Sum(Pr.cost)(Product Pr $\bowtie$ (\text{Product Pr1}}))))
+\end{equation*}
+
 \begin{enumerate}
 	\item DECLARE @SUM as int =(Select SUM(Pr.cost) FROM Product Pr WHERE Pr.maker='Unilever') (SELECT Pr.name FROM Product Pr WHERE NOT Pr.maker='Unilever' AND Pr.cost$>$@SUM)
 	\item SELECT Pr.name FROM Product Pr WHERE NOT Pr.maker='Unilever' AND Pr.cost$>$(Select SUM(Pr.cost) FROM Product Pr WHERE Pr.maker='Unilever')
@@ -115,12 +129,8 @@ List the copy cat products along with manufacturer, i.e. the products that have 
 
 \begin{proof}[Solution]
 \begin{enumerate}
-	\item
-	\item
-	\item
-	\item
-	\item
-	\item
+	\item SELECT Pr.maker FROM Product Pr Where Pr.name = (SELECT Pr1.name
+	FROM Product Pr1 Where Pr.name=Pr1.name)
 \end{enumerate}
 \end{proof}
 
@@ -130,6 +140,10 @@ Buyers of products produced in Lahore.
 \end{problem}
 
 \begin{proof}[Solution]
+\begin{equation*}
+\pi \text{Pr.name} (\sigma \text{city='Lahore'} AND \text{Pr.maker} = \text{C.name} \ (\text{Product Pr} \bowtie (\text{Company C})) )
+\end{equation*}
+
 \begin{enumerate}
 	\item SELECT Pr.name FROM Company C,Product Pr WHERE Pr.maker=C.name AND C.city='Lahore' 
 	\item  SELECT Pr.name FROM Product Pr CROSS JOIN Company C WHERE Pr.maker=C.name AND C.city='Lahore'
@@ -148,6 +162,9 @@ Buyers of products produced in Lahore.
 List of buyers, who only buy the products 'Made in Karachi'.
 \end{problem}
 \begin{proof}[Solution]
+\begin{equation*}
+\pi \text{Pu.buyer} (\sigma \text{Pu.product=Pr.name} AND \text{Pr.maker=C.name}   AND \text{Pr.city='Lahore'} (\text{Product Pr})(\text{Company C}) (\text{Purchase Pu})) )
+\end{equation*}
 \begin{enumerate}
 	\item SELECT Pu.buyer FROM Purchase Pu WHERE Pu.product IN(SELECT Pr.name FROM Product Pr	WHERE Pr.maker IN (SELECT C.name FROM Company C WHERE C.city='Lahore'))
 	\item SELECT Pu.buyer FROM Purchase Pu,Product Pr,Company C WHERE Pu.product=Pr.name AND Pr.maker =C.name AND C.city='Lahore'
@@ -163,8 +180,11 @@ List of buyers, who only buy the products 'Made in Karachi'.
 \begin{problem}{7}
 Name and price of products bought by more than five customers.
 \end{problem}
-
 \begin{proof}[Solution]
+\begin{equation}
+\pi \text{Name}, \text{AVG} (\text{price}) \ (\gamma \text{product} (\text{count} (\text{product}) \geq 5) \ (\text{Purchase}))
+\end{equation}
+
 \begin{enumerate}
 	\item SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu GROUP BY Pu.product HAVING COUNT(Pu.product)$>$=5
 	\item SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu CROSS JOIN Purchase Pu1 WHERE Pu.id=Pu1.id GROUP BY Pu.product HAVING COUNT(Pu1.product)$>$=5
@@ -201,6 +221,10 @@ List of companies who never sale products with loss.
 \end{problem}
 
 \begin{proof}[Solution]
+\begin{equation}
+\pi \text{ name} ( \sigma \ \text{C.name} = \text{Pr.maker} \ \& \ \text{Pr.name} = \text{Pu.product} \ \& \ \text{Pr.cost} < \text{Pu.price}) (\text{Company C} \bowtie \text{Product Pr} \bowtie \text{Purchase Pu})) 
+\end{equation}
+
 \begin{enumerate}
 	\item SELECT C.name FROM Company C WHERE C.name IN (SELECT Pr.maker FROM Product Pr WHERE Pr.name IN(SELECT Pu.product FROM Purchase Pu WHERE Pr.cost$<$Pu.price))
 			\item SELECT DISTINCT C.nameFROM Company C,Product Pr,Purchase Pu
@@ -224,11 +248,6 @@ List the products which have more than average revenue in 2015 but below average
 \begin{enumerate}
 	\item (SELECT DISTINCT Pr.name FROM Product Pr JOIN Purchase Pu
 ON Pr.name=Pu.product WHERE (Pr.cost-Pu.price)> (SELECT AVG(Pr1.cost- Pu1.price) FROM Product Pr1,Purchase Pu1 WHERE YEAR(Pr1.years)='2015') AND (Pr.cost-Pu.price)>(SELECT AVG(Pr.cost-Pu.price) FROM Product Pr JOIN Purchase Pu ON Pr.name=Pu.product WHERE YEAR(Pr.Years)='2016'))
-	\item
-	\item
-	\item
-	\item
-	\item
 \end{enumerate}
 \end{proof}
 
