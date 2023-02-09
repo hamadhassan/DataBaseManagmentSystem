@@ -1,0 +1,235 @@
+\documentclass[10pt,a4paper]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb, graphicx, multicol, array}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\usepackage{longtable}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=19mm,
+ top=19mm,
+ bottom=19mm,
+ right=19mm
+ }
+\begin{document}
+ 
+\title{CS262- Problem Set 1}
+\author{
+CS262- Database Systems\\
+2021-CS-33 | Muhammad Hamad Hassan\\}
+\maketitle
+\noindent
+Consider the following schema.\\
+Company(\underline{name}, city)\\
+\textbf{Description}
+Relation list the company name and location of company in city attribute. \\ \\
+\noindent
+Product(\underline{name}, maker, cost, year)\\ 
+\textbf{Description}
+Each product has name, and manufacturer of product in maker, cost as purchase price, and year as the launch year of that particular product. product name is unique for all problems except problem No.4 \\ \\
+Purchase(\underline{id}, product, buyer, price)\\
+\textbf{Description}
+Relation list the purchases made by customer listed in buyer columns, price as sale price, and product as name of product. 
+\\ \\
+\noindent
+\textbf{To-Do} For each of the problems given below you are required to provide Relational algebra expression and at least five equivalent solutions in SQL, out of which one solution should be performed using
+\begin{enumerate}
+    \item Cartesian product
+    \item Joins
+    \item Subquery
+\end{enumerate}
+
+%--------------------Problem-01--------------------------
+\begin{problem}{1}
+Find the products(names only) whose cost is more than the average cost.
+\end{problem}
+\begin{proof}[Solution] 
+
+\begin{enumerate}
+    \item SELECT name FROM Product WHERE cost $>$ (SELECT AVG(cost)FROM Product)
+    \item SELECT pr.name FROM Product Pr CROSS JOIN Product Pr1 GROUP BY Pr.name,Pr.cost HAVING Pr.cost $>$ AVG(Pr1.cost)
+    \item SELECT pr.name FROM Product Pr CROSS JOIN Product Pr1 WHERE PR.maker=PR1.maker GROUP BY pr.name,Pr.cost HAVING Pr.cost $>$ AVG(Pr1.cost)
+
+	\item SELECT pr.name FROM Product Pr JOIN Product Pr1 ON PR.maker=PR1.maker GROUP BY pr.name,Pr.cost HAVING Pr.cost $>$ AVG(Pr1.cost)
+	\item SELECT pr.name FROM Product Pr JOIN Product Pr1 ON PR.maker>PR1.maker GROUP BY pr.name,Pr.cost HAVING Pr.cost $>$ AVG(Pr1.cost)
+	\item SELECT pr.name FROM Product Pr LEFT OUTER JOIN Product Pr1
+ON PR.maker=PR1.maker GROUP BY pr.name,Pr.cost HAVING Pr.cost $>$ AVG(Pr1.cost)
+	\item SELECT pr.name FROM Product Pr Right OUTER JOIN Product Pr1
+ON PR.maker=PR1.maker GROUP BY pr.name,Pr.cost HAVING Pr.cost $>$ AVG(Pr1.cost)
+	\item SELECT pr.name FROM Product Pr FULL OUTER JOIN Product Pr1
+ON PR.maker=PR1.maker GROUP BY pr.name,Pr.cost HAVING Pr.cost $>$ AVG(Pr1.cost)
+
+\end{enumerate}
+\end{proof}
+
+%--------------------Problem-02--------------------------
+\begin{problem}{2}
+List the name of companies whose products are bought by Aslam.
+\end{problem}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+	\item SELECT C.name FROM Company C,Product Pr, Purchase Pu WHERE  C.name=Pr.maker AND Pr.name=Pu.product AND pu.buyer ='Aslam'
+	\item SELECT C.name FROM Company C WHERE C.name IN (SELECT Pr.maker FROM Product Pr, Purchase Pu WHERE pu.buyer ='Aslam' AND Pr.name=Pu.product)
+	\item SELECT C.name FROM Company C WHERE C.name IN (SELECT Pr.maker
+FROM Product Pr WHERE Pr.name IN (SELECT Pu.product FROM Purchase Pu WHERE pu.buyer='Aslam'))
+	\item SELECT Pr.maker FROM Product Pr WHERE Pr.name IN (SELECT Pu.product FROM Purchase Pu WHERE Pu.buyer='Aslam')
+	\item SELECT C.name FROM Company C CROSS JOIN Product Pr CROSS JOIN Purchase Pu WHERE C.name=Pr.maker AND Pr.name=Pu.product AND pu.buyer ='Aslam'
+	\item SELECT C.name FROM Company C FULL OUTER JOIN Product Pr ON C.name=Pr.maker FULL OUTER JOIN Purchase Pu ON Pr.name=Pu.product WHERE pu.buyer ='Aslam'
+	\item SELECT C.name FROM Company C LEFT OUTER JOIN Product Pr 
+ON C.name=Pr.maker LEFT OUTER JOIN Purchase Pu ON Pr.name=Pu.product WHERE pu.buyer ='Aslam'
+	\item SELECT C.name FROM Company C RIGHT OUTER JOIN Product Pr ON C.name=Pr.maker RIGHT OUTER JOIN Purchase Pu ON Pr.name=Pu.product WHERE pu.buyer ='Aslam' 
+	\item SELECT C.name FROM Company C LEFT OUTER JOIN Product Pr ON C.name=Pr.maker RIGHT OUTER JOIN Purchase Pu ON Pr.name=Pu.product WHERE pu.buyer ='Aslam'
+	\item SELECT C.name FROM Company C LEFT OUTER JOIN Product Pr ON C.name=Pr.maker WHERE PR.name IN (SELECT Pu.product FROM Purchase Pu WHERE pu.buyer ='Aslam')
+	\item SELECT C.name FROM Company C JOIN Product Pr ON C.name=Pr.maker JOIN Purchase Pu ON Pr.name=Pu.product WHERE pu.buyer ='Aslam' 
+\end{enumerate}
+\end{proof}
+
+%--------------------Problem-03--------------------------
+\begin{problem}{3}
+List the name of products that are more expensive that all the products produced by Unilever.
+\end{problem}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+	\item DECLARE @SUM as int =(Select SUM(Pr.cost) FROM Product Pr WHERE Pr.maker='Unilever') (SELECT Pr.name FROM Product Pr WHERE NOT Pr.maker='Unilever' AND Pr.cost$>$@SUM)
+	\item SELECT Pr.name FROM Product Pr WHERE NOT Pr.maker='Unilever' AND Pr.cost$>$(Select SUM(Pr.cost) FROM Product Pr WHERE Pr.maker='Unilever')
+	\item SELECT DISTINCT Pr.name FROM Product Pr CROSS JOIN Product Pr1 WHERE NOT Pr.maker='Unilever' AND Pr.cost$>$(Select SUM(Pr.cost) FROM Product Pr WHERE Pr.maker='Unilever')
+	\item SELECT  Pr.name FROM Product Pr FULL OUTER JOIN Product Pr1 ON Pr.name=Pr1.name WHERE NOT Pr.maker='Unilever' AND Pr.cost$>$(Select SUM(Pr.cost) FROM Product Pr WHERE Pr.maker='Unilever')
+	\item SELECT  Pr.name FROM Product Pr Left OUTER JOIN Product Pr1 ON Pr.name=Pr1.name WHERE NOT Pr.maker='Unilever' AND Pr.cost$>$(Select SUM(Pr.cost) FROM Product Pr WHERE Pr.maker='Unilever')
+	\item SELECT  Pr.name FROM Product Pr Right OUTER JOIN Product Pr1
+ON Pr.name=Pr1.name WHERE NOT Pr.maker='Unilever' AND Pr.cost$>$(Select SUM(Pr.cost)FROM Product Pr WHERE Pr.maker='Unilever')
+\end{enumerate}
+\end{proof}
+
+%--------------------Problem-04--------------------------
+\begin{problem}{4}
+List the copy cat products along with manufacturer, i.e. the products that have the same name as produced by Unilever.
+\end{problem}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+\end{proof}
+
+%--------------------Problem-05--------------------------
+\begin{problem}{5}
+Buyers of products produced in Lahore. 
+\end{problem}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+	\item SELECT Pr.name FROM Company C,Product Pr WHERE Pr.maker=C.name AND C.city='Lahore' 
+	\item  SELECT Pr.name FROM Product Pr CROSS JOIN Company C WHERE Pr.maker=C.name AND C.city='Lahore'
+	\item SELECT Pr.name FROM Product Pr JOIN Company C ON Pr.maker=C.name WHERE C.city='Lahore'
+	\item SELECT Pr.name FROM Product Pr FULL OUTER JOIN Company C ON Pr.maker=C.name WHERE C.city='Lahore' AND Pr.name IS NOT NULL
+	\item SELECT Pr.name FROM Product Pr LEFT OUTER JOIN Company C ON Pr.maker=C.name WHERE C.city='Lahore' AND Pr.name IS NOT NULL
+	\item SELECT Pr.name FROM Product Pr RIGHT OUTER JOIN Company C ON Pr.maker=C.name WHERE C.city='Lahore' AND Pr.name IS NOT NULL
+	\item SELECT Pr.name FROM Product Pr WHERE Pr.maker IN (SELECT C.name FROM Company C 	WHERE C.city='Lahore')
+\end{enumerate}
+\end{proof}
+
+
+
+%--------------------Problem-06--------------------------
+\begin{problem}{6}
+List of buyers, who only buy the products 'Made in Karachi'.
+\end{problem}
+\begin{proof}[Solution]
+\begin{enumerate}
+	\item SELECT Pu.buyer FROM Purchase Pu WHERE Pu.product IN(SELECT Pr.name FROM Product Pr	WHERE Pr.maker IN (SELECT C.name FROM Company C WHERE C.city='Lahore'))
+	\item SELECT Pu.buyer FROM Purchase Pu,Product Pr,Company C WHERE Pu.product=Pr.name AND Pr.maker =C.name AND C.city='Lahore'
+	\item SELECT Pu.buyer FROM Purchase Pu CROSS JOIN Product Pr CROSS JOIN Company C WHERE Pu.product=Pr.name AND Pr.maker =C.name AND C.city='Lahore'
+	\item SELECT Pu.buyer FROM Purchase Pu JOIN Product Pr ON Pu.product=Pr.name JOIN Company C ON Pr.maker =C.name WHERE C.city='Lahore'
+	\item  SELECT Pu.buyer FROM Purchase Pu FULL OUTER JOIN Product Pr ON Pu.product=Pr.name FULL OUTER JOIN Company C ON Pr.maker =C.name WHERE C.city='Lahore'AND  Pu.id IS NOT NULL
+	\item SELECT Pu.buyer FROM Purchase Pu LEFT OUTER JOIN Product Pr ON Pu.product=Pr.name LEFT OUTER JOIN Company C ON Pr.maker =C.name WHERE C.city='Lahore'AND  Pu.id IS NOT NULL 
+	\item SELECT Pu.buyer FROM Purchase Pu RIGHT OUTER JOIN Product Pr ON Pu.product=Pr.name RIGHT OUTER JOIN Company C ON Pr.maker =C.name WHERE C.city='Lahore'AND  Pu.id IS NOT NULL
+\end{enumerate}
+\end{proof}
+
+%--------------------Problem-07--------------------------
+\begin{problem}{7}
+Name and price of products bought by more than five customers.
+\end{problem}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+	\item SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu GROUP BY Pu.product HAVING COUNT(Pu.product)$>$=5
+	\item SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu CROSS JOIN Purchase Pu1 WHERE Pu.id=Pu1.id GROUP BY Pu.product HAVING COUNT(Pu1.product)$>$=5
+	\item  SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu JOIN Purchase Pu1 ON Pu.id=Pu1.id GROUP BY Pu.product HAVING COUNT(Pu1.product)$>$=5
+	\item SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu FULL OUTER JOIN Purchase Pu1 ON Pu.id=Pu1.id GROUP BY Pu.product HAVING COUNT(Pu1.product)$>$=5
+	\item SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu LEFT OUTER JOIN Purchase Pu1 ON Pu.id=Pu1.id GROUP BY Pu.product HAVING COUNT(Pu1.product)$>$=5
+	\item SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu RIGHT OUTER JOIN Purchase Pu1 ON Pu.id=Pu1.id GROUP BY Pu.product HAVING COUNT(Pu1.product)$>$=5
+\end{enumerate}
+\end{proof}
+
+%--------------------Problem-08--------------------------
+\begin{problem}{8}
+List of products that are more expensive that all the products made by same company before 2015.
+\end{problem}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+	\item SELECT Pr.name FROM Product Pr WHERE Pr.cost$>$ (SELECT  AVG(Pr1.cost) FROM Product Pr1 WHERE Pr1.maker=Pr.maker AND YEAR(Pr1.years)$<$'2015')
+	\item SELECT DISTINCT Pr.name FROM Product Pr CROSS JOIN Product Pr1
+WHERE Pr1.maker=Pr.maker OR  Pr.cost$>$(SELECT  AVG(Pr2.cost) FROM Product Pr2 WHERE YEAR(Pr2.years)$<$'2015') 
+	\item SELECT  Pr.name FROM Product Pr JOIN Product Pr1 ON Pr1.maker=Pr.maker WHERE Pr.cost$>$(SELECT  AVG(Pr.cost) FROM Product Pr WHERE YEAR(Pr.years)$<$'2015')
+	\item SELECT  Pr.name FROM Product Pr FULL OUTER JOIN Product Pr1
+ON Pr1.maker=Pr.maker WHERE Pr.cost$>$ (SELECT  AVG(Pr.cost) FROM Product Pr	WHERE YEAR(Pr.years)$<$'2015')
+	\item SELECT  Pr.name FROM Product Pr LEFT OUTER JOIN Product Pr1
+ON Pr1.maker=Pr.maker WHERE Pr.cost$>$ (SELECT  AVG(Pr.cost) FROM Product Pr	WHERE YEAR(Pr.years)$<$'2015')
+	\item SELECT  Pr.name FROM Product Pr RIGHT OUTER JOIN Product Pr1
+ON Pr1.maker=Pr.maker WHERE Pr.cost$>$(SELECT  AVG(Pr.cost) FROM Product Pr	WHERE YEAR(Pr.years)$<$'2015')
+\end{enumerate}
+\end{proof}
+
+%--------------------Problem-09--------------------------
+\begin{problem}{9}
+List of companies who never sale products with loss.
+\end{problem}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+	\item SELECT C.name FROM Company C WHERE C.name IN (SELECT Pr.maker FROM Product Pr WHERE Pr.name IN(SELECT Pu.product FROM Purchase Pu WHERE Pr.cost$<$Pu.price))
+			\item SELECT DISTINCT C.nameFROM Company C,Product Pr,Purchase Pu
+WHERE C.name=Pr.maker AND Pr.name = Pu.product AND  Pr.cost$<$ Pu.price
+	\item SELECT DISTINCT C.name FROM Company C CROSS JOIN Product Pr CROSS JOIN Purchase Pu WHERE C.name=Pr.maker AND Pr.name = Pu.product AND  Pr.cost$<$
+	\item SELECT DISTINCT C.name FROM Company C JOIN Product Pr
+ON C.name=Pr.maker JOIN Purchase Pu ON Pr.name = Pu.product WHERE Pr.cost$<$ Pu.price 
+	\item SELECT DISTINCT C.name FROM Company C FULL OUTER JOIN Product Pr
+ON C.name=Pr.maker FULL OUTER JOIN Purchase Pu ON Pr.name = Pu.product WHERE Pr.cost$<$ Pu.price 
+	\item SELECT DISTINCT C.name FROM Company C LEFT OUTER JOIN Product Pr ON C.name=Pr.maker LEFT OUTER JOIN Purchase Pu ON Pr.name = Pu.product WHERE Pr.cost$<$ Pu.price
+	\item SELECT DISTINCT C.name FROM Company C RIGHT OUTER JOIN Product Pr ON C.name=Pr.maker RIGHT OUTER JOIN Purchase Pu ON Pr.name = Pu.product WHERE Pr.cost$<$ Pu.price
+\end{enumerate}
+\end{proof}
+
+%--------------------Problem-10--------------------------
+\begin{problem}{10}
+List the products which have more than average revenue in 2015 but below average revenue in 2016
+\end{problem}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+	\item (SELECT DISTINCT Pr.name FROM Product Pr JOIN Purchase Pu
+ON Pr.name=Pu.product WHERE (Pr.cost-Pu.price)> (SELECT AVG(Pr1.cost- Pu1.price) FROM Product Pr1,Purchase Pu1 WHERE YEAR(Pr1.years)='2015') AND (Pr.cost-Pu.price)>(SELECT AVG(Pr.cost-Pu.price) FROM Product Pr JOIN Purchase Pu ON Pr.name=Pu.product WHERE YEAR(Pr.Years)='2016'))
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+\end{proof}
+
+\end{document}
