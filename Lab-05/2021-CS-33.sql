@@ -48,6 +48,32 @@ FROM Customers C JOIN Orders O
 ON C.CustomerID=O.CustomerID
 where O.OrderDate='1997-07-04 00:00:00.000'
 --9 Are there any employees who are older than their managers?
-SELECT *
-FROM Employees
-WHERE Title LIKE'%Manager%'
+DECLARE @MangerAge as DateTime=(SELECT E.BirthDate FROM Employees E WHERE E.Title LIKE'%Manager%')
+SELECT CONCAT(E.FirstName,' ',E.LastName) AS FullName
+FROM Employees E
+WHERE E.BirthDate < @MangerAge
+--10 List that names of those employees and their ages. (EmployeeName, Age, Manager Age)
+SELECT CONCAT(E.FirstName,' ',E.LastName) AS FullName, YEAR(GETDATE())-YEAR(E.BirthDate) AS AGE , YEAR(GETDATE())-YEAR(@MangerAge) AS ManagerAge
+FROM Employees E
+WHERE E.BirthDate < @MangerAge
+--11 List the names of products which 
+--were ordered on 8th August 1997. (ProductName, OrderDate)
+SELECT P.ProductName,O.OrderDate
+FROM Products P JOIN [Order Details] OD
+ON P.ProductID=OD.ProductID
+JOIN Orders O
+ON O.OrderID=OD.OrderID
+WHERE O.OrderDate='1997-08-08 00:00:00.000'
+--12 List the addresses, cities, countries of all orders which were serviced
+--by Anne and were shipped late. (Address, City, Country)
+SELECT O.ShipAddress,O.ShipCity,O.ShipCountry
+FROM Orders O JOIN Employees E
+ON O.EmployeeID=E.EmployeeID
+WHERE E.FirstName='Anne'AND o.ShippedDate>o.RequiredDate
+--List all countries to which beverages have been shipped. (Country)
+SELECT O.ShipCountry
+FROM Orders O
+WHERE O.ShipName like '%beverages%'
+
+
+
