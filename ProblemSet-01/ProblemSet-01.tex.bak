@@ -129,12 +129,8 @@ List the copy cat products along with manufacturer, i.e. the products that have 
 
 \begin{proof}[Solution]
 \begin{enumerate}
-	\item
-	\item
-	\item
-	\item
-	\item
-	\item
+	\item SELECT Pr.maker FROM Product Pr Where Pr.name = (SELECT Pr1.name
+	FROM Product Pr1 Where Pr.name=Pr1.name)
 \end{enumerate}
 \end{proof}
 
@@ -184,8 +180,11 @@ List of buyers, who only buy the products 'Made in Karachi'.
 \begin{problem}{7}
 Name and price of products bought by more than five customers.
 \end{problem}
-
 \begin{proof}[Solution]
+\begin{equation}
+\pi \text{Name}, \text{AVG} (\text{price}) \ (\gamma \text{product} (\text{count} (\text{product}) \geq 5) \ (\text{Purchase}))
+\end{equation}
+
 \begin{enumerate}
 	\item SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu GROUP BY Pu.product HAVING COUNT(Pu.product)$>$=5
 	\item SELECT Pu.product as Name,AVG(Pu.price) as Price FROM Purchase Pu CROSS JOIN Purchase Pu1 WHERE Pu.id=Pu1.id GROUP BY Pu.product HAVING COUNT(Pu1.product)$>$=5
@@ -222,6 +221,10 @@ List of companies who never sale products with loss.
 \end{problem}
 
 \begin{proof}[Solution]
+\begin{equation}
+\pi \text{ name} ( \sigma \ \text{C.name} = \text{Pr.maker} \ \& \ \text{Pr.name} = \text{Pu.product} \ \& \ \text{Pr.cost} < \text{Pu.price}) (\text{Company C} \bowtie \text{Product Pr} \bowtie \text{Purchase Pu})) 
+\end{equation}
+
 \begin{enumerate}
 	\item SELECT C.name FROM Company C WHERE C.name IN (SELECT Pr.maker FROM Product Pr WHERE Pr.name IN(SELECT Pu.product FROM Purchase Pu WHERE Pr.cost$<$Pu.price))
 			\item SELECT DISTINCT C.nameFROM Company C,Product Pr,Purchase Pu
@@ -245,11 +248,6 @@ List the products which have more than average revenue in 2015 but below average
 \begin{enumerate}
 	\item (SELECT DISTINCT Pr.name FROM Product Pr JOIN Purchase Pu
 ON Pr.name=Pu.product WHERE (Pr.cost-Pu.price)> (SELECT AVG(Pr1.cost- Pu1.price) FROM Product Pr1,Purchase Pu1 WHERE YEAR(Pr1.years)='2015') AND (Pr.cost-Pu.price)>(SELECT AVG(Pr.cost-Pu.price) FROM Product Pr JOIN Purchase Pu ON Pr.name=Pu.product WHERE YEAR(Pr.Years)='2016'))
-	\item
-	\item
-	\item
-	\item
-	\item
 \end{enumerate}
 \end{proof}
 
