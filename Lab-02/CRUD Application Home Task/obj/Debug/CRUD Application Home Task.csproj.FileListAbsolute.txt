@@ -13,3 +13,18 @@ D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\
 D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.frmCourse.resources
 D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.frmRegistration.resources
 D:\COMPUTER SCIENCE\Repo_DBMS\Week-2  CRUD Operation\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.frmStudent.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\bin\Debug\CRUD Application Home Task.exe.config
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\bin\Debug\CRUD Application Home Task.exe
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\bin\Debug\CRUD Application Home Task.pdb
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.csproj.AssemblyReference.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.csproj.SuggestedBindingRedirects.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.frmAttendence.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.frmCourse.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.frmRegistration.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.frmStudent.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.frmDashboard.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD_Application_Home_Task.Properties.Resources.resources
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.csproj.GenerateResource.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.csproj.CoreCompileInputs.cache
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.exe
+D:\COMPUTER SCIENCE\Repo_DBMS\Lab-02\CRUD Application Home Task\obj\Debug\CRUD Application Home Task.pdb

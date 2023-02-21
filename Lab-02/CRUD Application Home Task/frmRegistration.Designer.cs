@@ -162,6 +162,7 @@
             this.cmbxRegistrationNumber.Name = "cmbxRegistrationNumber";
             this.cmbxRegistrationNumber.Size = new System.Drawing.Size(224, 28);
             this.cmbxRegistrationNumber.TabIndex = 103;
+            this.cmbxRegistrationNumber.SelectedIndexChanged += new System.EventHandler(this.cmbxRegistrationNumber_SelectedIndexChanged);
             // 
             // cmbxCourseName
             // 

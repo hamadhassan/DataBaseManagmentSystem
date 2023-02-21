@@ -102,5 +102,10 @@ namespace CRUD_Application_Home_Task
         {
             this.Close();
         }
+
+        private void cmbxRegistrationNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
