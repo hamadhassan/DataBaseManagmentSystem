@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CRUDPractice4.props" />
+</Project>

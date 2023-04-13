@@ -10460,11 +10460,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\COMPUTER SCIENCE\\Repo_DBMS\\CRUDPractice\\CRUDPractice.csproj",
+      "projectUniqueName": "D:\\Learning-Track\\Repo_DBMS\\ASP.NET CORE\\CRUDPractice\\CRUDPractice.csproj",
       "projectName": "CRUDPractice",
-      "projectPath": "D:\\COMPUTER SCIENCE\\Repo_DBMS\\CRUDPractice\\CRUDPractice.csproj",
+      "projectPath": "D:\\Learning-Track\\Repo_DBMS\\ASP.NET CORE\\CRUDPractice\\CRUDPractice.csproj",
       "packagesPath": "C:\\Users\\Hammad Hassan\\.nuget\\packages\\",
-      "outputPath": "D:\\COMPUTER SCIENCE\\Repo_DBMS\\CRUDPractice\\obj\\",
+      "outputPath": "D:\\Learning-Track\\Repo_DBMS\\ASP.NET CORE\\CRUDPractice\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
